@@ -11,7 +11,8 @@ RUN apt-get -y update \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy DokuWiki's files
-RUN curl https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz | tar xz -C /tmp \
+ARG DUMMY=unknown
+RUN DUMMY=${DUMMY} curl https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz | tar xz -C /tmp \
     && mv /tmp/dokuwiki-* /var/www/dokuwiki \
     && chown -R www-data:www-data /var/www/dokuwiki
 

@@ -26,8 +26,11 @@ investigate using Alpine going forward.
 In the repo directory:
 
 ```
-docker build -t dokuwiki .
+docker build --build-arg DUMMY=`date +%s` -t jws85/dokuwiki .
 ```
+
+The DUMMY argument forces the re-downloading of DokuWiki, which would otherwise
+get cached.
 
 # Running
 
